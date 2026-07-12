@@ -116,15 +116,18 @@ section {
   text-decoration: none;
   padding: 1rem 1.6rem;
   border: 1px solid var(--osso-30);
+  box-shadow: 0 4px 12px rgba(201, 162, 39, 0);
   transition:
     transform 0.25s var(--ease-out),
     background 0.25s,
     color 0.25s,
-    border-color 0.25s;
+    border-color 0.25s,
+    box-shadow 0.3s var(--ease-out);
 }
 
 .btn:hover {
-  transform: translateY(-3px);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(201, 162, 39, 0.25);
 }
 .btn:active {
   transform: translateY(0) scale(0.97);
@@ -335,7 +338,10 @@ section {
 .hero__line--offset {
   margin-left: clamp(2rem, 22vw, 22rem);
   color: transparent;
-  -webkit-text-stroke: 1.5px var(--osso);
+  -webkit-text-stroke: 1px var(--osso);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  paint-order: stroke fill;
 }
 
 .hero__meta {
@@ -709,11 +715,14 @@ section {
   color: var(--osso-60);
 }
 
-.contato__mapa iframe {
-  width: 100%;
-  aspect-ratio: 4 / 3;
+.contato__mapa {
   border: 1px solid var(--osso-12);
-  filter: grayscale(1) invert(0.9) contrast(0.9);
+  overflow: hidden;
+}
+
+#mapa {
+  width: 100%;
+  height: 320px;
 }
 
 /* ============================================================
