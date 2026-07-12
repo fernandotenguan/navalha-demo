@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NAVALHA · Clube de Barbear — Vila Madalena, São Paulo</title>
+  <meta name="description" content="Barbearia premium na Vila Madalena. Corte clássico, barba na toalha quente e ritual de barbear com hora marcada. Agende pelo WhatsApp.">
+  <meta property="og:title" content="NAVALHA · Clube de Barbear">
+  <meta property="og:description" content="Corte, barba e ritual. Vila Madalena, São Paulo.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="assets/casa.jpg">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230B0B0F'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' font-weight='bold' fill='%23C9A227' text-anchor='middle'%3EN%3C/text%3E%3C/svg%3E">
+  <link rel="preload" as="image" href="assets/hero.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Archivo:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ======= NAVEGAÇÃO ======= -->
+  <header class="nav" id="topo">
+    <a class="nav__logo" href="#topo" aria-label="NAVALHA — voltar ao topo">
+      NAVALHA<span class="nav__dot">.</span>
+    </a>
+    <nav class="nav__links" aria-label="Navegação principal">
+      <a href="#servicos">Serviços</a>
+      <a href="#casa">A Casa</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    <a class="btn btn--nav" href="https://wa.me/5511999999999?text=Quero%20agendar%20um%20hor%C3%A1rio%20na%20NAVALHA" target="_blank" rel="noopener">
+      Agendar horário
+    </a>
+    <button class="nav__burger" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span>
+    </button>
+  </header>
+
+  <div class="menu-mobile" hidden>
+    <a href="#servicos">Serviços</a>
+    <a href="#casa">A Casa</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#contato">Contato</a>
+    <a class="menu-mobile__cta" href="https://wa.me/5511999999999" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+  </div>
+
+  <main>
+
+    <!-- ======= HERO ======= -->
+    <section class="hero">
+      <p class="hero__eyebrow reveal" style="--d:.05s">Clube de barbear · Est. 2018</p>
+
+      <div class="hero__stage">
+        <figure class="hero__img reveal" style="--d:.5s">
+          <img src="assets/hero.jpg" alt="Barbeiro finalizando a barba de um cliente com tesoura, em luz baixa" width="1600" height="1067" fetchpriority="high">
+        </figure>
+        <h1 class="hero__title" aria-label="Navalha">
+          <span class="hero__line reveal" style="--d:.15s">NAVA</span><span class="hero__line hero__line--offset reveal" style="--d:.3s">LHA</span>
+        </h1>
+      </div>
+
+      <div class="hero__meta">
+        <p class="hero__claim reveal" style="--d:.65s">Corte, barba e silêncio.<br>Hora marcada, cadeira de couro,<br>toalha quente e navalha afiada.</p>
+        <div class="hero__actions reveal" style="--d:.8s">
+          <a class="btn btn--solid" href="https://wa.me/5511999999999?text=Quero%20agendar%20um%20hor%C3%A1rio%20na%20NAVALHA" target="_blank" rel="noopener">Agendar pelo WhatsApp</a>
+          <a class="btn btn--ghost" href="#servicos">Ver serviços<span aria-hidden="true"> ↓</span></a>
+        </div>
+      </div>
+
+      <p class="hero__side" aria-hidden="true">Vila Madalena — São Paulo</p>
+    </section>
+
+    <!-- ======= MARQUEE ======= -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span>Corte clássico ✦ Barba na toalha quente ✦ Navalha ✦ Dia do noivo ✦ Cerveja gelada na cadeira ✦ Hora marcada ✦&nbsp;</span><span>Corte clássico ✦ Barba na toalha quente ✦ Navalha ✦ Dia do noivo ✦ Cerveja gelada na cadeira ✦ Hora marcada ✦&nbsp;</span>
+      </div>
+    </div>
+
+    <!-- ======= SERVIÇOS ======= -->
+    <section class="servicos" id="servicos">
+      <div class="section-head">
+        <span class="section-head__num reveal" style="--d:0s">01</span>
+        <h2 class="reveal" style="--d:.1s">Serviços &amp;<br><em>Ritual</em></h2>
+        <p class="section-head__note reveal" style="--d:.2s">Preço fechado, sem surpresa.<br>Pagamento em Pix, cartão ou dinheiro.</p>
+      </div>
+
+      <ul class="price-list">
+        <li class="price-row reveal" data-img="assets/corte.jpg" style="--d:0s">
+          <span class="price-row__num">01</span>
+          <h3>Corte clássico</h3>
+          <p>Tesoura e máquina, acabamento na navalha, finalização com pomada.</p>
+          <span class="price-row__price">R$ 70</span>
+        </li>
+        <li class="price-row reveal" data-img="assets/navalha.jpg" style="--d:.05s">
+          <span class="price-row__num">02</span>
+          <h3>Barba na toalha quente</h3>
+          <p>Toalha quente, óleo pré-barba, navalha e balm. O ritual completo.</p>
+          <span class="price-row__price">R$ 55</span>
+        </li>
+        <li class="price-row reveal" data-img="assets/hero.jpg" style="--d:.1s">
+          <span class="price-row__num">03</span>
+          <h3>Corte + barba</h3>
+          <p>O combo da casa. Uma hora inteira de cadeira, sem pressa.</p>
+          <span class="price-row__price">R$ 110</span>
+        </li>
+        <li class="price-row reveal" data-img="assets/corte.jpg" style="--d:.15s">
+          <span class="price-row__num">04</span>
+          <h3>Pezinho &amp; acabamento</h3>
+          <p>Manutenção de contorno entre um corte e outro. Quinze minutos.</p>
+          <span class="price-row__price">R$ 30</span>
+        </li>
+        <li class="price-row reveal" data-img="assets/cadeira.jpg" style="--d:.2s">
+          <span class="price-row__num">05</span>
+          <h3>Dia do noivo</h3>
+          <p>Corte, barba, sobrancelha e espumante. Para o dia em que tudo tem que dar certo.</p>
+          <span class="price-row__price">R$ 220</span>
+        </li>
+      </ul>
+      <img class="float-img" src="assets/corte.jpg" alt="" aria-hidden="true" width="320" height="213">
+    </section>
+
+    <!-- ======= A CASA ======= -->
+    <section class="casa" id="casa">
+      <div class="section-head">
+        <span class="section-head__num reveal" style="--d:0s">02</span>
+        <h2 class="reveal" style="--d:.1s">A Casa</h2>
+      </div>
+
+      <div class="casa__grid">
+        <figure class="casa__img reveal" style="--d:.15s">
+          <img src="assets/casa.jpg" alt="Interior da barbearia com três cadeiras de couro, espelhos e parede de tijolos" width="1600" height="1063" loading="lazy">
+          <figcaption>Rua Harmonia · Vila Madalena</figcaption>
+        </figure>
+        <div class="casa__text">
+          <p class="casa__lead reveal" style="--d:.2s">Uma barbearia como as de antes, com o padrão de agora. Três cadeiras, hora marcada e nenhuma pressa.</p>
+          <p class="reveal" style="--d:.3s">A NAVALHA nasceu em 2018 num sobrado da Vila Madalena. A regra da casa é uma só: cada cliente sai melhor do que entrou. Café passado na hora ou cerveja gelada, vinil tocando baixo e a cadeira é sua pelo tempo que o serviço pedir.</p>
+          <dl class="casa__stats">
+            <div class="reveal" style="--d:.35s"><dt>7</dt><dd>anos de casa</dd></div>
+            <div class="reveal" style="--d:.4s"><dt>18k+</dt><dd>cortes feitos</dd></div>
+            <div class="reveal" style="--d:.45s"><dt>4,9★</dt><dd>no Google</dd></div>
+          </dl>
+          <ul class="casa__team reveal" style="--d:.5s">
+            <li><strong>Edu Sarmento</strong><span>Fundador · navalha e tesoura</span></li>
+            <li><strong>Rafa Lima</strong><span>Barbeiro · fade e freestyle</span></li>
+            <li><strong>Tonho Ferraz</strong><span>Barbeiro · barba e ritual clássico</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======= DEPOIMENTOS ======= -->
+    <section class="depo" id="depoimentos">
+      <div class="section-head">
+        <span class="section-head__num reveal" style="--d:0s">03</span>
+        <h2 class="reveal" style="--d:.1s">Quem senta<br><em>na cadeira</em></h2>
+      </div>
+
+      <div class="depo__list">
+        <blockquote class="depo__card reveal" style="--d:.1s">
+          <p>“Corto cabelo no mesmo lugar há cinco anos e não é por falta de opção na região. É porque aqui nunca saiu errado.”</p>
+          <footer><span class="depo__stars" aria-label="5 estrelas">★★★★★</span><cite>Marcos P. · cliente desde 2020</cite></footer>
+        </blockquote>
+        <blockquote class="depo__card depo__card--offset reveal" style="--d:.25s">
+          <p>“A barba na toalha quente virou meu programa de sexta. Quarenta minutos em que ninguém me acha.”</p>
+          <footer><span class="depo__stars" aria-label="5 estrelas">★★★★★</span><cite>Felipe R. · cliente desde 2022</cite></footer>
+        </blockquote>
+        <blockquote class="depo__card reveal" style="--d:.4s">
+          <p>“Fiz o dia do noivo aqui. Chegamos em quatro, saímos prontos e no horário. Profissionalismo raro.”</p>
+          <footer><span class="depo__stars" aria-label="5 estrelas">★★★★★</span><cite>André T. · casou em 2025</cite></footer>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ======= CONTATO ======= -->
+    <section class="contato" id="contato">
+      <div class="section-head">
+        <span class="section-head__num reveal" style="--d:0s">04</span>
+        <h2 class="reveal" style="--d:.1s">Marque<br><em>seu horário</em></h2>
+      </div>
+
+      <div class="contato__grid">
+        <div class="contato__info">
+          <a class="btn btn--solid btn--big reveal" style="--d:.15s" href="https://wa.me/5511999999999?text=Quero%20agendar%20um%20hor%C3%A1rio%20na%20NAVALHA" target="_blank" rel="noopener">
+            Agendar pelo WhatsApp <span aria-hidden="true">→</span>
+          </a>
+          <address class="reveal" style="--d:.25s">
+            Rua Harmonia, 123 · Vila Madalena<br>
+            São Paulo · SP<br>
+            <a href="tel:+5511999999999">(11) 99999-9999</a>
+          </address>
+          <table class="contato__horarios reveal" style="--d:.35s">
+            <caption>Horário de funcionamento</caption>
+            <tbody>
+              <tr><th scope="row">Ter — Sex</th><td>10h às 20h</td></tr>
+              <tr><th scope="row">Sábado</th><td>9h às 18h</td></tr>
+              <tr><th scope="row">Dom — Seg</th><td>Fechado</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="contato__mapa reveal" style="--d:.3s">
+          <iframe
+            src="https://www.google.com/maps?q=Rua+Harmonia,+Vila+Madalena,+S%C3%A3o+Paulo&output=embed"
+            title="Mapa: Rua Harmonia, Vila Madalena, São Paulo"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ======= RODAPÉ ======= -->
+  <footer class="footer">
+    <p class="footer__brand">NAVALHA<span>.</span></p>
+    <p class="footer__note">Clube de barbear · Vila Madalena · São Paulo</p>
+    <p class="footer__credit">Site fictício de portfólio · feito com café por <a href="https://wa.me/5511999999999" target="_blank" rel="noopener">seu nome aqui</a></p>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

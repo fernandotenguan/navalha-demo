@@ -1,0 +1,852 @@
+/* ============================================================
+   NAVALHA · Clube de Barbear
+   Paleta: preto #0B0B0F · osso #F5F0E6 · latão #C9A227
+   Tipos:  Fraunces (display) · Archivo (texto)
+   Geometria: cantos retos, bordas 1px, precisão de navalha
+   ============================================================ */
+
+:root {
+  --preto: #0b0b0f;
+  --preto-2: #121218;
+  --osso: #f5f0e6;
+  --osso-60: rgba(245, 240, 230, 0.6);
+  --osso-30: rgba(245, 240, 230, 0.28);
+  --osso-12: rgba(245, 240, 230, 0.14);
+  --latao: #c9a227;
+  --serif: "Fraunces", Georgia, serif;
+  --sans: "Archivo", Arial, sans-serif;
+  --pad: clamp(1.25rem, 5vw, 5rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  background: var(--preto);
+  color: var(--osso);
+  font-family: var(--sans);
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Grão de filme sobre a página inteira */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+::selection {
+  background: var(--latao);
+  color: var(--preto);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--serif);
+  font-weight: 500;
+  line-height: 1.05;
+}
+
+h2 {
+  font-size: clamp(2.6rem, 7vw, 5.5rem);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+h2 em {
+  font-style: italic;
+  color: var(--latao);
+}
+
+a {
+  color: inherit;
+}
+
+section {
+  padding: clamp(5rem, 12vh, 9rem) var(--pad);
+}
+
+/* ---------- Reveal on scroll ---------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(34px);
+  transition:
+    opacity 0.9s var(--ease-out) var(--d, 0s),
+    transform 0.9s var(--ease-out) var(--d, 0s);
+}
+
+.reveal.in {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1rem 1.6rem;
+  border: 1px solid var(--osso-30);
+  transition:
+    transform 0.25s var(--ease-out),
+    background 0.25s,
+    color 0.25s,
+    border-color 0.25s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+}
+.btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+.btn--solid {
+  background: var(--latao);
+  border-color: var(--latao);
+  color: var(--preto);
+}
+
+.btn--solid:hover {
+  background: var(--osso);
+  border-color: var(--osso);
+}
+
+.btn--ghost:hover {
+  border-color: var(--latao);
+  color: var(--latao);
+}
+
+.btn--big {
+  font-size: 1rem;
+  padding: 1.4rem 2.2rem;
+}
+
+/* ============================================================
+   NAVEGAÇÃO
+   ============================================================ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: 1.1rem var(--pad);
+  border-bottom: 1px solid transparent;
+  transition:
+    background 0.35s,
+    border-color 0.35s,
+    padding 0.35s;
+}
+
+.nav.scrolled {
+  background: var(--preto);
+  border-bottom-color: var(--osso-12);
+  padding-block: 0.75rem;
+}
+
+.nav__logo {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.35rem;
+  letter-spacing: 0.06em;
+  text-decoration: none;
+}
+
+.nav__dot {
+  color: var(--latao);
+}
+
+.nav__links {
+  display: flex;
+  gap: 2.2rem;
+}
+
+.nav__links a {
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--osso-60);
+  transition: color 0.25s;
+}
+
+.nav__links a:hover {
+  color: var(--latao);
+}
+
+.btn--nav {
+  padding: 0.7rem 1.2rem;
+}
+
+.nav__burger {
+  display: none;
+  flex-direction: column;
+  gap: 7px;
+  background: none;
+  border: 0;
+  padding: 0.4rem;
+  cursor: pointer;
+}
+
+.nav__burger span {
+  width: 26px;
+  height: 1.5px;
+  background: var(--osso);
+  transition: transform 0.3s var(--ease-out);
+}
+
+.nav__burger[aria-expanded="true"] span:first-child {
+  transform: translateY(4.25px) rotate(45deg);
+}
+.nav__burger[aria-expanded="true"] span:last-child {
+  transform: translateY(-4.25px) rotate(-45deg);
+}
+
+.menu-mobile[hidden] {
+  display: none;
+}
+
+.menu-mobile {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--preto);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.4rem;
+  padding: var(--pad);
+}
+
+.menu-mobile a {
+  font-family: var(--serif);
+  font-size: 2.2rem;
+  text-decoration: none;
+  border-bottom: 1px solid var(--osso-12);
+  padding-bottom: 1rem;
+}
+
+.menu-mobile__cta {
+  color: var(--latao);
+}
+
+/* ============================================================
+   HERO — tipografia massiva sobre a foto
+   ============================================================ */
+.hero {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-top: 7rem;
+  padding-bottom: 3rem;
+  position: relative;
+}
+
+.hero__eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--latao);
+  margin-bottom: 1rem;
+}
+
+.hero__stage {
+  position: relative;
+}
+
+.hero__img {
+  position: absolute;
+  right: 0;
+  bottom: 18%;
+  width: min(58vw, 780px);
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+}
+
+.hero__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(0.5) contrast(1.08) brightness(0.82);
+}
+
+/* véu de latão sobre a foto */
+.hero__img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    160deg,
+    rgba(201, 162, 39, 0.18),
+    rgba(11, 11, 15, 0.55) 75%
+  );
+}
+
+.hero__title {
+  position: relative;
+  z-index: 2;
+  font-size: clamp(4.6rem, 19.5vw, 19rem);
+  font-weight: 500;
+  letter-spacing: -0.015em;
+  line-height: 0.82;
+  text-transform: uppercase;
+}
+
+.hero__line {
+  display: block;
+}
+
+.hero__line--offset {
+  margin-left: clamp(2rem, 22vw, 22rem);
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--osso);
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: clamp(2rem, 6vh, 4rem);
+}
+
+.hero__claim {
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  color: var(--osso-60);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.hero__side {
+  position: absolute;
+  right: calc(var(--pad) / 2.5);
+  top: 50%;
+  writing-mode: vertical-rl;
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--osso-30);
+}
+
+/* ============================================================
+   MARQUEE
+   ============================================================ */
+.marquee {
+  border-block: 1px solid var(--osso-12);
+  overflow: hidden;
+  padding-block: 1.1rem;
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.marquee__track span {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.3rem;
+  white-space: nowrap;
+  color: var(--osso-60);
+}
+
+@keyframes marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ============================================================
+   CABEÇALHO DE SEÇÃO
+   ============================================================ */
+.section-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: end;
+  gap: 1.5rem 3rem;
+  margin-bottom: clamp(3rem, 7vh, 5rem);
+}
+
+.section-head__num {
+  font-family: var(--serif);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--latao);
+  border: 1px solid var(--osso-30);
+  padding: 0.4rem 0.8rem;
+}
+
+.section-head__note {
+  font-size: 0.85rem;
+  letter-spacing: 0.04em;
+  color: var(--osso-60);
+  text-align: right;
+}
+
+/* ============================================================
+   SERVIÇOS — lista editorial de preços
+   ============================================================ */
+.servicos {
+  position: relative;
+}
+
+.price-list {
+  list-style: none;
+}
+
+.price-row {
+  display: grid;
+  grid-template-columns: 3.5rem 1fr 1.2fr auto;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 1.8rem 0;
+  border-top: 1px solid var(--osso-12);
+  cursor: default;
+  transition:
+    padding-left 0.35s var(--ease-out),
+    border-color 0.35s;
+}
+
+.price-row:last-child {
+  border-bottom: 1px solid var(--osso-12);
+}
+
+.price-row:hover {
+  padding-left: 1.2rem;
+  border-top-color: var(--latao);
+}
+
+.price-row__num {
+  font-family: var(--serif);
+  font-style: italic;
+  color: var(--osso-30);
+}
+
+.price-row h3 {
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  transition: color 0.3s;
+}
+
+.price-row:hover h3 {
+  color: var(--latao);
+}
+
+.price-row p {
+  font-size: 0.95rem;
+  color: var(--osso-60);
+  max-width: 44ch;
+}
+
+.price-row__price {
+  font-family: var(--serif);
+  font-size: clamp(1.3rem, 2.4vw, 2rem);
+  justify-self: end;
+}
+
+/* Foto que segue o mouse (desktop) */
+.float-img {
+  position: fixed;
+  z-index: 50;
+  width: min(320px, 26vw);
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  pointer-events: none;
+  opacity: 0;
+  transform: scale(0.85);
+  transition:
+    opacity 0.3s var(--ease-out),
+    transform 0.3s var(--ease-out);
+  filter: grayscale(0.35) contrast(1.05);
+  border: 1px solid var(--osso-30);
+}
+
+.float-img.on {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* ============================================================
+   A CASA
+   ============================================================ */
+.casa {
+  background: var(--preto-2);
+}
+
+.casa__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: clamp(2rem, 6vw, 6rem);
+  align-items: start;
+}
+
+.casa__img {
+  position: relative;
+  margin-top: 3.5rem; /* quebra de alinhamento proposital */
+}
+
+.casa__img img {
+  filter: grayscale(0.4) contrast(1.06) brightness(0.9);
+  border: 1px solid var(--osso-12);
+}
+
+.casa__img figcaption {
+  position: absolute;
+  bottom: -1.9rem;
+  right: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--osso-30);
+}
+
+.casa__lead {
+  font-family: var(--serif);
+  font-size: clamp(1.5rem, 2.6vw, 2.1rem);
+  line-height: 1.25;
+  margin-bottom: 1.6rem;
+}
+
+.casa__text > p:not(.casa__lead) {
+  color: var(--osso-60);
+  max-width: 58ch;
+}
+
+.casa__stats {
+  display: flex;
+  gap: clamp(1.5rem, 4vw, 3.5rem);
+  margin: 2.6rem 0;
+}
+
+.casa__stats dt {
+  font-family: var(--serif);
+  font-size: clamp(2.2rem, 4vw, 3.4rem);
+  color: var(--latao);
+  line-height: 1;
+}
+
+.casa__stats dd {
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--osso-60);
+  margin-top: 0.5rem;
+}
+
+.casa__team {
+  list-style: none;
+  border-top: 1px solid var(--osso-12);
+}
+
+.casa__team li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--osso-12);
+}
+
+.casa__team strong {
+  font-weight: 500;
+  font-family: var(--serif);
+  font-size: 1.15rem;
+}
+
+.casa__team span {
+  color: var(--osso-60);
+  font-size: 0.85rem;
+  text-align: right;
+}
+
+/* ============================================================
+   DEPOIMENTOS
+   ============================================================ */
+.depo__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(1.2rem, 3vw, 2.5rem);
+}
+
+.depo__card {
+  border: 1px solid var(--osso-12);
+  padding: 2.2rem 1.9rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2.4rem;
+  transition:
+    border-color 0.35s,
+    transform 0.35s var(--ease-out);
+}
+
+.depo__card:hover {
+  border-color: var(--latao);
+  transform: translateY(-6px);
+}
+
+.depo__card--offset {
+  margin-top: 3rem;
+} /* escalonamento proposital */
+
+.depo__card p {
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.8vw, 1.45rem);
+  line-height: 1.35;
+}
+
+.depo__stars {
+  color: var(--latao);
+  letter-spacing: 0.2em;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.depo__card cite {
+  font-style: normal;
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--osso-60);
+}
+
+/* ============================================================
+   CONTATO
+   ============================================================ */
+.contato {
+  background: var(--preto-2);
+}
+
+.contato__grid {
+  display: grid;
+  grid-template-columns: 1fr 1.15fr;
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.contato__info address {
+  font-style: normal;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 2.4rem 0;
+  color: var(--osso-60);
+}
+
+.contato__info address a {
+  color: var(--osso);
+  text-decoration-color: var(--latao);
+}
+
+.contato__horarios {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 26rem;
+}
+
+.contato__horarios caption {
+  text-align: left;
+  font-size: 0.78rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--latao);
+  padding-bottom: 0.9rem;
+}
+
+.contato__horarios th,
+.contato__horarios td {
+  border-top: 1px solid var(--osso-12);
+  padding: 0.8rem 0;
+  font-size: 0.95rem;
+  text-align: left;
+}
+
+.contato__horarios th {
+  font-weight: 500;
+}
+
+.contato__horarios td {
+  text-align: right;
+  color: var(--osso-60);
+}
+
+.contato__mapa iframe {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border: 1px solid var(--osso-12);
+  filter: grayscale(1) invert(0.9) contrast(0.9);
+}
+
+/* ============================================================
+   RODAPÉ
+   ============================================================ */
+.footer {
+  padding: 3.5rem var(--pad);
+  border-top: 1px solid var(--osso-12);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.footer__brand {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 1.4rem;
+  letter-spacing: 0.06em;
+}
+
+.footer__brand span {
+  color: var(--latao);
+}
+
+.footer__note,
+.footer__credit {
+  font-size: 0.8rem;
+  color: var(--osso-60);
+}
+
+.footer__credit a {
+  color: var(--latao);
+}
+
+/* ============================================================
+   RESPONSIVO
+   ============================================================ */
+@media (max-width: 900px) {
+  .nav__links,
+  .btn--nav {
+    display: none;
+  }
+  .nav__burger {
+    display: flex;
+  }
+
+  .hero {
+    justify-content: center;
+  }
+  .hero__img {
+    position: relative;
+    width: 100%;
+    bottom: auto;
+    margin: 1.2rem 0;
+    aspect-ratio: 16 / 10;
+  }
+  .hero__line--offset {
+    margin-left: 12vw;
+  }
+  .hero__side {
+    display: none;
+  }
+
+  .section-head {
+    grid-template-columns: auto 1fr;
+  }
+  .section-head__note {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+
+  .price-row {
+    grid-template-columns: 2.4rem 1fr auto;
+    grid-template-areas:
+      "num title price"
+      "num desc desc";
+    row-gap: 0.7rem;
+  }
+  .price-row__num {
+    grid-area: num;
+  }
+  .price-row h3 {
+    grid-area: title;
+  }
+  .price-row p {
+    grid-area: desc;
+  }
+  .price-row__price {
+    grid-area: price;
+  }
+  .float-img {
+    display: none;
+  }
+
+  .casa__grid,
+  .contato__grid {
+    grid-template-columns: 1fr;
+  }
+  .casa__img {
+    margin-top: 0;
+  }
+
+  .depo__list {
+    grid-template-columns: 1fr;
+  }
+  .depo__card--offset {
+    margin-top: 0;
+  }
+}
+
+/* ============================================================
+   MOVIMENTO REDUZIDO
+   ============================================================ */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .marquee__track {
+    animation: none;
+  }
+  .btn,
+  .depo__card,
+  .price-row {
+    transition: none;
+  }
+  .float-img {
+    display: none;
+  }
+}
