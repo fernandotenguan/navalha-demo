@@ -338,10 +338,7 @@ section {
 .hero__line--offset {
   margin-left: clamp(2rem, 22vw, 22rem);
   color: transparent;
-  -webkit-text-stroke: 1px var(--osso);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  paint-order: stroke fill;
+  -webkit-text-stroke: 2px var(--osso);
 }
 
 .hero__meta {
@@ -716,13 +713,18 @@ section {
 }
 
 .contato__mapa {
-  border: 1px solid var(--osso-12);
+  border: 1px solid var(--osso-30);
   overflow: hidden;
 }
 
-#mapa {
+.contato__mapa iframe {
+  display: block;
   width: 100%;
-  height: 320px;
+  aspect-ratio: 4 / 3;
+  border: 0;
+  /* tom quente de papel envelhecido, combinando com osso + latão */
+  filter: sepia(0.45) saturate(1.5) hue-rotate(-8deg) brightness(1.04)
+    contrast(0.92);
 }
 
 /* ============================================================
